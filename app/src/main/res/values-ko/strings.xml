@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Shortify</string>
+    <string name="link">단축</string>
+    <string name="history">기록</string>
+    <string name="base">원본 주소</string>
+    <string name="shorten">단축 주소</string>
+    <string name="shortify">단축하기</string>
+    <string name="blank">원본 주소를 입력해주세요!</string>
+</resources>
