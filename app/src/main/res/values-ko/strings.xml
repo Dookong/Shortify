@@ -6,4 +6,5 @@
     <string name="shorten">단축 주소</string>
     <string name="shortify">단축하기</string>
     <string name="blank">원본 주소를 입력해주세요!</string>
+    <string name="doing">단축하는중..</string>
 </resources>

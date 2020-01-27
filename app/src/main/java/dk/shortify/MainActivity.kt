@@ -4,9 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import dk.shortify.api.gd.GdServiceImpl
-import dk.shortify.api.me2.Me2Service
 import dk.shortify.api.me2.Me2ServiceImpl
 import dk.shortify.api.shrtcode.ShrtCodeServiceImpl
 import dk.shortify.model.GD
@@ -17,10 +15,14 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import splitties.toast.toast
+import android.app.ProgressDialog
+
 
 class MainActivity : AppCompatActivity() {
 
     var flag = 0
+
+    @Suppress("DEPRECATION") lateinit var pd: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,9 +45,18 @@ class MainActivity : AppCompatActivity() {
             else
                 shorrtify(url)
         }
+
+        @Suppress("DEPRECATION")
+        pd = ProgressDialog(this).apply {
+            isIndeterminate = true
+            setCancelable(false)
+            setMessage(getString(R.string.doing))
+        }
     }
 
     private fun shorrtify(url: String){
+        pd.show()
+
         val cb = object : Callback<GD> {
             override fun onFailure(call: Call<GD>, t: Throwable) {
                 toast("err: $t")
@@ -89,5 +100,6 @@ class MainActivity : AppCompatActivity() {
         shorten?.
             let { tv_shorten.text = it } ?:
             run { toast("Unsupported format:(") }
+        pd.dismiss()
     }
 }

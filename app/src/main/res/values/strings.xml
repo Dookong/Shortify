@@ -6,4 +6,5 @@
     <string name="shorten">Shorten URL</string>
     <string name="shortify">Shortify</string>
     <string name="blank">Please fill in the blank!</string>
+    <string name="doing">Converting...</string>
 </resources>
