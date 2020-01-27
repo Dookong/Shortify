@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="arr_provider">
+        <item>v.gd</item>
+        <item>is.gd</item>
+        <item>me2.do</item>
+        <item>shrtco.de</item>
+    </string-array>
+</resources>

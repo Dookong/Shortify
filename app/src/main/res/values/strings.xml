@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Shortify</string>
+    <string name="link">Link</string>
+    <string name="history">History</string>
+    <string name="base">Base URL</string>
+    <string name="shorten">Shorten URL</string>
+    <string name="shortify">Shortify</string>
+    <string name="blank">Please fill in the blank!</string>
 </resources>
