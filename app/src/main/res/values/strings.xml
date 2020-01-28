@@ -7,4 +7,7 @@
     <string name="shortify">Shortify</string>
     <string name="blank">Please fill in the blank!</string>
     <string name="doing">Converting...</string>
+    <string name="internet_main">No internet connection</string>
+    <string name="internet_sub">Please check your internet connection and try again</string>
+    <string name="internet_btn">Retry</string>
 </resources>

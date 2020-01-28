@@ -7,15 +7,16 @@ import android.widget.AdapterView
 import dk.shortify.api.gd.GdServiceImpl
 import dk.shortify.api.me2.Me2ServiceImpl
 import dk.shortify.api.shrtcode.ShrtCodeServiceImpl
-import dk.shortify.model.GD
-import dk.shortify.model.ME2
-import dk.shortify.model.ShrtCode
+import dk.shortify.model.*
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import splitties.toast.toast
 import android.app.ProgressDialog
+import com.wessam.library.LayoutImage
+import com.wessam.library.NetworkChecker
+import com.wessam.library.NoInternetLayout
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,7 +29,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+        if(!NetworkChecker.isNetworkConnected(this)){
+            NoInternetLayout.Builder(this, R.layout.activity_main)
+                .setImage(LayoutImage.SHELL)
+                .mainTitle(R.string.internet_main)
+                .secondaryText(R.string.internet_sub)
+                .buttonText(R.string.internet_btn)
+                .animate()
+        }
+
+        else
+            initView()
+    }
+
+    private fun initView() {
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
 
@@ -40,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         btn_shortify.setOnClickListener {
             val url = et_base.text.toString().trim()
 
-            if(url.isBlank())
+            if (url.isBlank())
                 toast(R.string.blank)
             else
                 shorrtify(url)

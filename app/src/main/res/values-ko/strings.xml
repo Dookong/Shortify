@@ -7,4 +7,7 @@
     <string name="shortify">단축하기</string>
     <string name="blank">원본 주소를 입력해주세요!</string>
     <string name="doing">단축하는중..</string>
+    <string name="internet_main">인터넷 연결 실패</string>
+    <string name="internet_sub">네트워크 상태를 확인한 후 다시 접속해주세요</string>
+    <string name="internet_btn">새로 고침</string>
 </resources>

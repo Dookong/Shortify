@@ -39,7 +39,9 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
 
-
     //Splitties
     implementation 'com.louiscad.splitties:splitties-toast:2.1.1'
+
+    //Utils
+    implementation 'com.github.MohamedWessam:no-internet-layout:0.1.1'
 }
