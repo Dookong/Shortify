@@ -10,4 +10,9 @@
     <string name="internet_main">인터넷 연결 실패</string>
     <string name="internet_sub">네트워크 상태를 확인한 후 다시 접속해주세요</string>
     <string name="internet_btn">새로 고침</string>
+    <string name="setting">설정</string>
+    <string name="developer">개발자</string>
+    <string name="version">앱 버전</string>
+    <string name="homepage">홈페이지</string>
+    <string name="history_clear">초기화</string>
 </resources>

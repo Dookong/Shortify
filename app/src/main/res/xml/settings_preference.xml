@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/history">
+        <androidx.preference.PreferenceScreen
+            android:key="history_clear"
+            android:title="@string/history_clear" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/developer">
+        <androidx.preference.PreferenceScreen
+            android:key="homepage"
+            android:title="@string/homepage"/>
+        <androidx.preference.PreferenceScreen
+            android:key="version"
+            android:title="@string/version"
+            android:summary="1.0.0"/>
+    </PreferenceCategory>
+</androidx.preference.PreferenceScreen >

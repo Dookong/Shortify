@@ -1,4 +1,4 @@
-package dk.shortify
+package dk.shortify.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,14 +14,22 @@ import retrofit2.Callback
 import retrofit2.Response
 import splitties.toast.toast
 import android.app.ProgressDialog
+import android.content.Context
+import android.content.Intent
+import android.view.Menu
+import android.view.MenuItem
+import android.view.inputmethod.InputMethodManager
 import com.wessam.library.LayoutImage
 import com.wessam.library.NetworkChecker
 import com.wessam.library.NoInternetLayout
+import dk.shortify.R
 
 
 class MainActivity : AppCompatActivity() {
 
     var flag = 0
+
+    lateinit var imm: InputMethodManager
 
     @Suppress("DEPRECATION") lateinit var pd: ProgressDialog
 
@@ -67,9 +75,12 @@ class MainActivity : AppCompatActivity() {
             setCancelable(false)
             setMessage(getString(R.string.doing))
         }
+
+        imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     }
 
     private fun shorrtify(url: String){
+        imm.hideSoftInputFromWindow(et_base.windowToken, 0)
         pd.show()
 
         val cb = object : Callback<GD> {
@@ -116,5 +127,20 @@ class MainActivity : AppCompatActivity() {
             let { tv_shorten.text = it } ?:
             run { toast("Unsupported format:(") }
         pd.dismiss()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val menuInflater = menuInflater
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_history -> startActivity(Intent())
+            else -> startActivity(Intent(this, SettingActivity::class.java))
+        }
+
+        return true
     }
 }

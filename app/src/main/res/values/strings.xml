@@ -10,4 +10,9 @@
     <string name="internet_main">No internet connection</string>
     <string name="internet_sub">Please check your internet connection and try again</string>
     <string name="internet_btn">Retry</string>
+    <string name="setting">Settings</string>
+    <string name="developer">Developer</string>
+    <string name="version">App Version</string>
+    <string name="homepage">Homepage</string>
+    <string name="history_clear">Clear Up</string>
 </resources>
