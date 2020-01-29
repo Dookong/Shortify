@@ -52,4 +52,7 @@ dependencies {
     //Room
     implementation 'androidx.room:room-runtime:2.2.3'
     kapt 'androidx.room:room-compiler:2.2.3'
+
+    //Ktx
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0'
 }

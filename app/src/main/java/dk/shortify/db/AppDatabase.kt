@@ -15,7 +15,5 @@ object DB{
         Room.databaseBuilder(
             context,
             AppDatabase::class.java, "history"
-        )
-            .allowMainThreadQueries()
-            .build()
+        ).build()
 }

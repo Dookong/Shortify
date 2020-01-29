@@ -19,12 +19,15 @@ import android.content.Intent
 import android.view.Menu
 import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
+import androidx.lifecycle.lifecycleScope
 import com.wessam.library.LayoutImage
 import com.wessam.library.NetworkChecker
 import com.wessam.library.NoInternetLayout
 import dk.shortify.R
 import dk.shortify.db.DB
 import dk.shortify.db.History
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -136,9 +139,13 @@ class MainActivity : AppCompatActivity() {
         shorten?.
             let {
                 tv_shorten.text = it
-                DB.get(this@MainActivity).historyDao()
-                    .insert(History(flag, et_base.text.toString(), it))
                 fab_send.show()
+
+                lifecycleScope.launch(Dispatchers.IO) {
+                    DB.get(this@MainActivity).historyDao()
+                        .insert(History(flag, et_base.text.toString(), it))
+                }
+
                 toast(R.string.clearComplete)
 
             } ?:
