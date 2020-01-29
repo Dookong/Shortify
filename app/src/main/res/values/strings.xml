@@ -17,4 +17,5 @@
     <string name="history_clear">Clear Up</string>
     <string name="unsupported">Unsupported format:(</string>
     <string name="clearComplete">complete:)</string>
+    <string name="send">Send</string>
 </resources>

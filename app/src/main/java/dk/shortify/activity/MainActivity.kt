@@ -70,6 +70,15 @@ class MainActivity : AppCompatActivity() {
                 shorrtify(url)
         }
 
+        fab_send.setOnClickListener{
+            val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                type = "text/plain"
+                putExtra(Intent.EXTRA_TEXT, tv_shorten.text.toString())
+            }
+
+            startActivity(Intent.createChooser(shareIntent, getString(R.string.send)))
+        }
+
         @Suppress("DEPRECATION")
         pd = ProgressDialog(this).apply {
             isIndeterminate = true
@@ -129,10 +138,15 @@ class MainActivity : AppCompatActivity() {
                 tv_shorten.text = it
                 DB.get(this@MainActivity).historyDao()
                     .insert(History(flag, et_base.text.toString(), it))
+                fab_send.show()
                 toast(R.string.clearComplete)
 
             } ?:
-            run { toast(R.string.unsupported) }
+            run {
+                tv_shorten.text = ""
+                fab_send.hide()
+                toast(R.string.unsupported)
+            }
         pd.dismiss()
     }
 
