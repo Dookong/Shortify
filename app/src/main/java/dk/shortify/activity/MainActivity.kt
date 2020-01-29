@@ -25,8 +25,6 @@ import com.wessam.library.NoInternetLayout
 import dk.shortify.R
 import dk.shortify.db.DB
 import dk.shortify.db.History
-import java.util.*
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -118,7 +116,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     override fun onResponse(call: Call<ShrtCode>, response: Response<ShrtCode>) {
-                        applyShorten(response.takeIf { it.isSuccessful }?.body()?.result?.shortLink)
+                        applyShorten(response.takeIf { it.isSuccessful }?.body()?.result?.fullShortLink)
                     }
                 })
             }
@@ -131,6 +129,8 @@ class MainActivity : AppCompatActivity() {
                 tv_shorten.text = it
                 DB.get(this@MainActivity).historyDao()
                     .insert(History(flag, et_base.text.toString(), it))
+                toast(R.string.clearComplete)
+
             } ?:
             run { toast(R.string.unsupported) }
         pd.dismiss()

@@ -3,6 +3,7 @@ package dk.shortify.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import dk.shortify.R
 import dk.shortify.adapter.HistoryAdapter
@@ -20,11 +21,12 @@ class HistoryActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         adapter = HistoryAdapter(this).apply {
-            data = DB.get(this@HistoryActivity).historyDao().getAll()
+            data = DB.get(this@HistoryActivity).historyDao().getAll().reversed()
         }
 
         rv_history.adapter = this.adapter
-        rv_history.layoutManager = LinearLayoutManager(this)
+        rv_history.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        rv_history.addItemDecoration(DividerItemDecoration(this, 1))
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

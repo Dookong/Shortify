@@ -38,7 +38,12 @@ class HistoryAdapter (private val context : Context) : RecyclerView.Adapter<Hist
                 3 -> img.setImageResource(R.drawable.codelogo)
             }
 
-            tvShorten.text = data.shorten
+            //shorten
+            with(data.shorten){
+                tvShorten.text = substring(indexOf("//") + 2)
+            }
+
+            //original
             tvOrigin.text = data.origin
 
             itemView.setOnClickListener {

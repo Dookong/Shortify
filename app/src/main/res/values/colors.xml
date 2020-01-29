@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#dff807</color>
-    <color name="colorPrimaryDark">#dff807</color>
+    <color name="colorPrimary">#BFFA51</color>
+    <color name="colorPrimaryDark">#BFFA51</color>
     <color name="colorAccent">#C70BFC</color>
     <color name="tedBtnPrimary">#F8F1A8</color>
     <color name="tedBtnHighlight">#F8F1A8</color>

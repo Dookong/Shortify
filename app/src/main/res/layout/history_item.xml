@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:background="@color/white">
 
     <ImageView
         android:id="@+id/img_type"
@@ -11,9 +14,7 @@
         android:layout_height="64dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -22,11 +23,11 @@
         android:id="@+id/tv_shorten"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:text="@string/shorten"
+        android:textColor="#57D65D"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="@+id/img_type"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/img_type"
         app:layout_constraintTop_toTopOf="@+id/img_type" />
@@ -35,9 +36,11 @@
         android:id="@+id/tv_origin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Original URL"
-        app:layout_constraintEnd_toEndOf="@+id/tv_shorten"
-        app:layout_constraintStart_toStartOf="@+id/tv_shorten"
-        app:layout_constraintTop_toBottomOf="@+id/tv_shorten" />
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/img_type"
+        app:layout_constraintTop_toBottomOf="@+id/img_type" />
 </androidx.constraintlayout.widget.ConstraintLayout>
