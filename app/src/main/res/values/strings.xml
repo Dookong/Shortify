@@ -15,4 +15,6 @@
     <string name="version">App Version</string>
     <string name="homepage">Homepage</string>
     <string name="history_clear">Clear Up</string>
+    <string name="unsupported">Unsupported format:(</string>
+    <string name="clearComplete">complete:)</string>
 </resources>

@@ -8,15 +8,28 @@ import android.content.pm.PackageInfo
 import androidx.preference.PreferenceScreen
 import android.content.Intent
 import android.net.Uri
+import android.view.MenuItem
+import dk.shortify.R
+import dk.shortify.db.DB
+import splitties.toast.toast
 
 
 class SettingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportFragmentManager.beginTransaction()
             .replace(android.R.id.content, SettingFragment())
             .commit()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> onBackPressed()
+        }
+
+        return true
     }
 
     class SettingFragment : PreferenceFragmentCompat() {
@@ -26,6 +39,12 @@ class SettingActivity : AppCompatActivity() {
             val historyClear: PreferenceScreen? = findPreference("history_clear")
             val homepage: PreferenceScreen? = findPreference("homepage")
             val version: PreferenceScreen? = findPreference("version")
+
+            historyClear?.setOnPreferenceClickListener {
+                DB.get(context!!).historyDao().clear()
+                toast(R.string.clearComplete)
+                true
+            }
 
             homepage?.setOnPreferenceClickListener {
                 startActivity(

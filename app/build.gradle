@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -45,4 +47,8 @@ dependencies {
     //Views
     implementation 'com.github.MohamedWessam:no-internet-layout:0.1.1'
     implementation 'androidx.preference:preference:1.1.0'
+
+    //Room
+    implementation 'androidx.room:room-runtime:2.2.3'
+    kapt 'androidx.room:room-compiler:2.2.3'
 }

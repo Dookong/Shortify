@@ -23,6 +23,9 @@ import com.wessam.library.LayoutImage
 import com.wessam.library.NetworkChecker
 import com.wessam.library.NoInternetLayout
 import dk.shortify.R
+import dk.shortify.db.DB
+import dk.shortify.db.History
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -124,8 +127,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun applyShorten(shorten: String?) {
         shorten?.
-            let { tv_shorten.text = it } ?:
-            run { toast("Unsupported format:(") }
+            let {
+                tv_shorten.text = it
+                DB.get(this@MainActivity).historyDao()
+                    .insert(History(flag, et_base.text.toString(), it))
+            } ?:
+            run { toast(R.string.unsupported) }
         pd.dismiss()
     }
 
@@ -137,7 +144,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.menu_history -> startActivity(Intent())
+            R.id.menu_history -> startActivity(Intent(this, HistoryActivity::class.java))
             else -> startActivity(Intent(this, SettingActivity::class.java))
         }
 

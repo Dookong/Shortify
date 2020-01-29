@@ -15,4 +15,6 @@
     <string name="version">앱 버전</string>
     <string name="homepage">홈페이지</string>
     <string name="history_clear">초기화</string>
+    <string name="unsupported">지원되지 않는 형식입니다:(</string>
+    <string name="clearComplete">완료:)</string>
 </resources>
