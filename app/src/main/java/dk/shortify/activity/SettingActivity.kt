@@ -39,6 +39,11 @@ class SettingActivity : AppCompatActivity() {
         return true
     }
 
+    override fun onBackPressed() {
+        finish()
+        overridePendingTransition(R.anim.not_move, R.anim.leftout)
+    }
+
     class SettingFragment : PreferenceFragmentCompat() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             addPreferencesFromResource(dk.shortify.R.xml.settings_preference)
@@ -116,6 +121,5 @@ class SettingActivity : AppCompatActivity() {
 
             return packageInfo.versionName
         }
-
     }
 }

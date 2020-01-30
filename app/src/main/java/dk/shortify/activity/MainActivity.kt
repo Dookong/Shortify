@@ -194,9 +194,12 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.menu_history -> {
                 startActivity(Intent(this, HistoryActivity::class.java))
-                
+                overridePendingTransition(R.anim.rightin, R.anim.not_move)
             }
-            else -> startActivity(Intent(this, SettingActivity::class.java))
+            else -> {
+                startActivity(Intent(this, SettingActivity::class.java))
+                overridePendingTransition(R.anim.rightin, R.anim.not_move)
+            }
         }
 
         return true

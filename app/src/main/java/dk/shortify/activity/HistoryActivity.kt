@@ -65,6 +65,11 @@ class HistoryActivity : AppCompatActivity() {
             })
     }
 
+    override fun onBackPressed() {
+        finish()
+        overridePendingTransition(R.anim.not_move, R.anim.leftout)
+    }
+
     override fun onDestroy() {
         facebookBanner?.destroy()
         super.onDestroy()
