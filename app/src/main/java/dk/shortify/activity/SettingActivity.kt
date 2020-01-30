@@ -9,8 +9,11 @@ import androidx.preference.PreferenceScreen
 import android.content.Intent
 import android.net.Uri
 import android.view.MenuItem
+import androidx.lifecycle.lifecycleScope
 import dk.shortify.R
 import dk.shortify.db.DB
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import splitties.toast.toast
 
 
@@ -41,7 +44,9 @@ class SettingActivity : AppCompatActivity() {
             val version: PreferenceScreen? = findPreference("version")
 
             historyClear?.setOnPreferenceClickListener {
-                DB.get(context!!).historyDao().clear()
+                lifecycleScope.launch(Dispatchers.IO) {
+                    DB.get(context!!).historyDao().clear()
+                }
                 toast(R.string.clearComplete)
                 true
             }

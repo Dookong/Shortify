@@ -47,6 +47,7 @@ dependencies {
     //Views
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.github.MohamedWessam:no-internet-layout:0.1.1'
+    implementation 'com.github.mejdi14:Flat-Dialog-Android:1.0.4'
     implementation 'androidx.preference:preference:1.1.0'
 
     //Room

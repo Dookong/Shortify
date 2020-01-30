@@ -18,4 +18,7 @@
     <string name="unsupported">Unsupported format:(</string>
     <string name="clearComplete">complete:)</string>
     <string name="send">Send</string>
+    <string name="dup">Copy to clipboard</string>
+    <string name="open">Open in browser</string>
+    <string name="delete">Delete</string>
 </resources>

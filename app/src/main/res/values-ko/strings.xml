@@ -18,4 +18,7 @@
     <string name="unsupported">지원되지 않는 형식입니다:(</string>
     <string name="clearComplete">완료:)</string>
     <string name="send">전송하기</string>
+    <string name="dup">클립보드에 복사</string>
+    <string name="open">브라우저로 열기</string>
+    <string name="delete">기록 삭제</string>
 </resources>

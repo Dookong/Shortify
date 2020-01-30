@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import dk.shortify.R
@@ -21,7 +22,7 @@ class HistoryActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        adapter = HistoryAdapter(this)
+        adapter = HistoryAdapter(this, lifecycleScope)
 
         rv_history.adapter = this.adapter
         rv_history.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
@@ -43,5 +44,4 @@ class HistoryActivity : AppCompatActivity() {
 
         return true
     }
-
 }
