@@ -21,4 +21,7 @@
     <string name="dup">Copy to clipboard</string>
     <string name="open">Open in browser</string>
     <string name="delete">Delete</string>
+    <string name="app">App</string>
+    <string name="license">Open Source License</string>
+    <string name="other_app">Other apps</string>
 </resources>

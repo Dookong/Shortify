@@ -13,6 +13,15 @@
             android:key="homepage"
             android:title="@string/homepage"/>
         <androidx.preference.PreferenceScreen
+            android:key="other_app"
+            android:title="@string/other_app" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/app">
+        <androidx.preference.PreferenceScreen
+            android:key="license"
+            android:title="@string/license"/>
+        <androidx.preference.PreferenceScreen
             android:key="version"
             android:title="@string/version"
             android:summary="1.0.0"/>

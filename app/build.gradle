@@ -23,6 +23,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
 }
 
 dependencies {
@@ -49,6 +53,7 @@ dependencies {
     implementation 'com.github.MohamedWessam:no-internet-layout:0.1.1'
     implementation 'com.github.mejdi14:Flat-Dialog-Android:1.0.4'
     implementation 'androidx.preference:preference:1.1.0'
+    implementation 'de.psdev.licensesdialog:licensesdialog:2.1.0'
 
     //Room
     implementation 'androidx.room:room-runtime:2.2.3'

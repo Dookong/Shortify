@@ -21,4 +21,7 @@
     <string name="dup">클립보드에 복사</string>
     <string name="open">브라우저로 열기</string>
     <string name="delete">기록 삭제</string>
+    <string name="app">앱</string>
+    <string name="license">오픈소스 라이선스</string>
+    <string name="other_app">다른 앱</string>
 </resources>
