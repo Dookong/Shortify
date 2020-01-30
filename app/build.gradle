@@ -11,7 +11,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "dk.shortify"
-        minSdkVersion 19
+        minSdkVersion 23
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -61,4 +61,10 @@ dependencies {
 
     //Ktx
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0'
+
+    //Ads
+    implementation 'com.facebook.android:audience-network-sdk:5.5.0'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'com.google.android.gms:play-services-ads:18.3.0'
+    implementation 'gun0912.ted:tedadhelper:1.4.1'
 }

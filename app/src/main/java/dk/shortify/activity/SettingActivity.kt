@@ -92,6 +92,7 @@ class SettingActivity : AppCompatActivity() {
                 addNotice(Notice("Gson", "https://github.com/google/gson", "Copyright 2008 Google Inc.", ApacheSoftwareLicense20()))
                 addNotice(Notice("Splitties", "https://github.com/LouisCAD/Splitties", "", ApacheSoftwareLicense20()))
                 addNotice(Notice("no-internet-layout", "https://github.com/MohamedWessam/no-internet-layout", "Copyright 2019 Mohamed Wessam.", ApacheSoftwareLicense20()))
+                addNotice(Notice("TedAdHelper", "https://github.com/ParkSangGwon/TedAdHelper", "Copyright 2017 Ted Park.", ApacheSoftwareLicense20()))
             }
 
             LicensesDialog.Builder(context)

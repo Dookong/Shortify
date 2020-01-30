@@ -20,12 +20,17 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
 import androidx.lifecycle.lifecycleScope
+import com.facebook.ads.AdView
 import com.wessam.library.LayoutImage
 import com.wessam.library.NetworkChecker
 import com.wessam.library.NoInternetLayout
+import dk.shortify.AdsKey
 import dk.shortify.R
 import dk.shortify.db.DB
 import dk.shortify.db.History
+import gun0912.tedadhelper.TedAdHelper
+import gun0912.tedadhelper.banner.OnBannerAdListener
+import gun0912.tedadhelper.banner.TedAdBanner
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -90,6 +95,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+
+        showBannerAd()
     }
 
     private fun shorrtify(url: String){
@@ -157,6 +164,26 @@ class MainActivity : AppCompatActivity() {
         pd.dismiss()
     }
 
+    private var facebookBanner: AdView? = null
+    private fun showBannerAd(){
+        TedAdBanner.showBanner(bannerMain, AdsKey.FACEBOOK, AdsKey.ADMOB, TedAdHelper.AD_FACEBOOK,
+            object : OnBannerAdListener{
+                override fun onAdClicked(adType: Int) {
+                }
+
+                override fun onLoaded(adType: Int) {
+                }
+
+                override fun onError(errorMessage: String?) {
+                }
+
+                override fun onFacebookAdCreated(facebookBanner: AdView?) {
+                    this@MainActivity.facebookBanner = facebookBanner
+                }
+
+            })
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val menuInflater = menuInflater
         menuInflater.inflate(R.menu.menu, menu)
@@ -165,10 +192,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.menu_history -> startActivity(Intent(this, HistoryActivity::class.java))
+            R.id.menu_history -> {
+                startActivity(Intent(this, HistoryActivity::class.java))
+                
+            }
             else -> startActivity(Intent(this, SettingActivity::class.java))
         }
 
         return true
+    }
+
+    override fun onDestroy() {
+        facebookBanner?.destroy()
+        super.onDestroy()
     }
 }

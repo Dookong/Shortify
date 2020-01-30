@@ -3,6 +3,6 @@
     <color name="colorPrimary">#BFFA51</color>
     <color name="colorPrimaryDark">#BFFA51</color>
     <color name="colorAccent">#C70BFC</color>
-    <color name="tedBtnPrimary">#F8F1A8</color>
+    <color name="tedBtnPrimary">#BFFA51</color>
     <color name="tedBtnHighlight">#F8F1A8</color>
 </resources>

@@ -7,10 +7,16 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.facebook.ads.AdView
+import dk.shortify.AdsKey
 import dk.shortify.R
 import dk.shortify.adapter.HistoryAdapter
 import dk.shortify.db.DB
+import gun0912.tedadhelper.TedAdHelper
+import gun0912.tedadhelper.banner.OnBannerAdListener
+import gun0912.tedadhelper.banner.TedAdBanner
 import kotlinx.android.synthetic.main.activity_history.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class HistoryActivity : AppCompatActivity() {
 
@@ -35,6 +41,33 @@ class HistoryActivity : AppCompatActivity() {
                 notifyDataSetChanged()
             }
         })
+
+        showBannerAd()
+    }
+
+    private var facebookBanner: AdView? = null
+    private fun showBannerAd(){
+        TedAdBanner.showBanner(bannerMain, AdsKey.FACEBOOK2, AdsKey.ADMOB, TedAdHelper.AD_FACEBOOK,
+            object : OnBannerAdListener {
+                override fun onAdClicked(adType: Int) {
+                }
+
+                override fun onLoaded(adType: Int) {
+                }
+
+                override fun onError(errorMessage: String?) {
+                }
+
+                override fun onFacebookAdCreated(facebookBanner: AdView?) {
+                    this@HistoryActivity.facebookBanner = facebookBanner
+                }
+
+            })
+    }
+
+    override fun onDestroy() {
+        facebookBanner?.destroy()
+        super.onDestroy()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
