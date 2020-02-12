@@ -97,6 +97,12 @@ class MainActivity : AppCompatActivity() {
         imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
         showBannerAd()
+
+
+        if(intent.action == Intent.ACTION_SEND && intent.type == "text/plain"){
+            et_base.setText(intent.getStringExtra(Intent.EXTRA_TEXT))
+            btn_shortify.performClick()
+        }
     }
 
     private fun shorrtify(url: String){
