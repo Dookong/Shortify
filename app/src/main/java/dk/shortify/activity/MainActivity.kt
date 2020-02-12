@@ -97,11 +97,21 @@ class MainActivity : AppCompatActivity() {
         imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
         showBannerAd()
+        runIntentAction()
+    }
 
+    private fun runIntentAction() {
+        with(intent) {
+            if (type == "text/plain") {
+                when (action) {
+                    Intent.ACTION_SEND ->
+                        et_base.setText(intent.getStringExtra(Intent.EXTRA_TEXT))
 
-        if(intent.action == Intent.ACTION_SEND && intent.type == "text/plain"){
-            et_base.setText(intent.getStringExtra(Intent.EXTRA_TEXT))
-            btn_shortify.performClick()
+                    Intent.ACTION_PROCESS_TEXT ->
+                        et_base.setText(intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT))
+                }
+                btn_shortify.performClick()
+            }
         }
     }
 
